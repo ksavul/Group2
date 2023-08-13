@@ -16,7 +16,8 @@ This project was developed as a group activity for at least three students, and 
    - [Querying Results](#querying-results)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [License](#license)
+5. [Snapshots] (#snapshots)
+6. [License](#license)
 
 ## Contract
 
