@@ -8,12 +8,12 @@ This project was developed as a group activity for at least three students, and 
 
 1. [Contract](#contract)
 2. [Scripts](#scripts)
-    - [Casting Votes](#casting-votes)
-    - [Checking Vote Power](#checking-vote-power)
-    - [Delegating Voting Power](#delegating-voting-power)
-    - [Deploy Ballot Contracts](#deploy-ballot-contracts)
-    - [Mint Tokens](#mint-tokens)
-    - [Querying Results](#querying-results)
+   - [Casting Votes](#casting-votes)
+   - [Checking Vote Power](#checking-vote-power)
+   - [Delegating Voting Power](#delegating-voting-power)
+   - [Deploy Ballot Contracts](#deploy-ballot-contracts)
+   - [Mint Tokens](#mint-tokens)
+   - [Querying Results](#querying-results)
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [License](#license)
@@ -67,6 +67,13 @@ npx hardhat run scripts/<script_name>.ts
 ```
 
 Make sure to replace `<script_name>` with the appropriate script name.
+
+## Snapshots
+
+![Contract creation](snapshots/contract%20creation.jpg)
+![Delegate](snapshots/delegate.jpg)
+![Delegate 2](snapshots/delegate2.jpg)
+![Mint](snapshots/mint.jpg)
 
 ## License
 
