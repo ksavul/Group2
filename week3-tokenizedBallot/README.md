@@ -70,10 +70,10 @@ Make sure to replace `<script_name>` with the appropriate script name.
 
 ## Snapshots
 
-![Contract creation](snapshots/contract%20creation.jpg)
-![Delegate](snapshots/delegate.jpg)
-![Delegate 2](snapshots/delegate2.jpg)
-![Mint](snapshots/mint.jpg)
+![Contract creation](Snapshots/contract%20creation.jpg)
+![Delegate](Snapshots/delegate.jpg)
+![Delegate 2](Snapshots/delegate2.jpg)
+![Mint](Snapshots/mint.jpg)
 
 ## License
 
