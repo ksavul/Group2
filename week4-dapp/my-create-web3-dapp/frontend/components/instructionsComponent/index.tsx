@@ -7,17 +7,28 @@ import {
   useNetwork,
   useSignMessage,
 } from "wagmi";
+import { createPublicClient, getContractAddress, http } from "viem";
+import { mainnet } from "viem/chains";
+import config from "../../../backend/artifacts/contracts/TokenizedBallot.sol/TokenizedBallot.json";
+import { getContract } from "@wagmi/core";
+import { publicProvider } from "wagmi/providers/public";
+import { useContractEvent } from "wagmi";
+import VoteComponent from "./voteComponent";
+import QueryComponent from "./queryComponent";
+import DelegateComponent from "./delegateComponent";
 
 export default function InstructionsComponent() {
   return (
     <div className={styles.container}>
       <header className={styles.header_container}>
         <div className={styles.header}>
-          <h1>My App</h1>
+          <h1>Ballot Dapp</h1>
         </div>
       </header>
       <div className={styles.get_started}>
-        <PageBody></PageBody>
+        <VoteComponent></VoteComponent>
+        <DelegateComponent></DelegateComponent>
+        <QueryComponent></QueryComponent>
       </div>
     </div>
   );
@@ -45,7 +56,6 @@ function WalletInfo() {
         <WalletBalance address={address}></WalletBalance>
         <TokenName></TokenName>
         <TokenBalance address={address}></TokenBalance>
-        <RandomProfile></RandomProfile>
       </div>
     );
   if (isConnecting)
@@ -115,7 +125,8 @@ function WalletBalance(params: { address: `0x${string}` }) {
 
 function TokenName() {
   const { data, isError, isLoading } = useContractRead({
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    address: "0xCC42724C6683B7E57334c4E856f4c9965ED682bD",
+    //"0x10A91764A9D6376c545D9be403C47a458a9C9E03",
     abi: [
       {
         constant: true,
@@ -144,7 +155,7 @@ function TokenName() {
 
 function TokenBalance(params: { address: `0x${string}` }) {
   const { data, isError, isLoading } = useContractRead({
-    address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    address: "0x22482542fFE728d2B5E800cEb79E8DE61cC29c70",
     abi: [
       {
         constant: true,
@@ -177,41 +188,28 @@ function TokenBalance(params: { address: `0x${string}` }) {
   return <div>Balance: {balance}</div>;
 }
 
-function RandomProfile() {
-  const [data, setData] = useState<any>(null);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("https://randomuser.me/api/")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.results[0]);
-        setLoading(false);
-      });
-  }, []);
-
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-
-  return (
-    <div>
-      <h1>
-        Name: {data.name.title} {data.name.first} {data.name.last}
-      </h1>
-      <p>Email: {data.email}</p>
-    </div>
-  );
-}
-
 function RequestTokensToBeMinted(params: { address: `0x${string}` }) {
   const [data, setData] = useState<any>(null);
   const [isLoading, setLoading] = useState(true);
 
   if (isLoading) return <p>Requesting tokens from API ...</p>;
-  if (!data) return <p>placehodler for the button</p>;
+  if (!data) return <p>placeholder for the button</p>;
   return (
     <div>
-      <p>Mind success: {data.resutls ? "worked" : "failed"}</p>
+      <p>Mind success: {data.results ? "worked" : "failed"}</p>
     </div>
   );
 }
+
+console.log("Layout: Rendering...");
+
+console.log("Config:", config); // Log the config object to verify if it's set up correctly
+const contractConfig = {
+  //TODO add address/?
+  abi: config.abi,
+};
+
+const contract = getContract({
+  address: "0x22482542fFE728d2B5E800cEb79E8DE61cC29c70",
+  abi: contractConfig.abi,
+});
