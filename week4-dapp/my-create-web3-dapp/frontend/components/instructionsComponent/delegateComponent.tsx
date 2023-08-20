@@ -4,11 +4,9 @@ import { usePrepareContractWrite, useContractWrite } from "wagmi";
 import config from "../../../backend/artifacts/contracts/ERC20Votes.sol/MyToken.json";
 
 import Button from "@mui/material/Button";
-
-import Box from "@mui/material/Box";
-import { parseEther } from "ethers";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
 const contractConfig = {
   abi: config.abi,
@@ -32,17 +30,26 @@ function DelegateComponent() {
   console.log("Token Address:", tokenAddress);
 
   return (
-    <Box mt={2}>
+    <Box
+      mt={2}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      maxWidth="400px" // Set a fixed width
+      margin="20px auto"
+    >
       <Typography variant="h4" gutterBottom>
         Delegate Component
       </Typography>
-      <Box mb={2}>
+      <Box mb={2} marginTop={2}>
         <TextField
           label="Delegate Address"
           value={delegate}
-          onChange={(e) => setDelegatee(e.target.value)}
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setDelegatee(e.target.value)
+          }
           variant="outlined"
-          fullWidth
+          sx={{ width: "100%" }}
         />
       </Box>
       <Button
@@ -54,6 +61,7 @@ function DelegateComponent() {
           write?.();
           console.log("Calling delegate function...FINISHED");
         }}
+        sx={{ width: "56%" }}
       >
         Delegate
       </Button>

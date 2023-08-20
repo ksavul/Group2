@@ -6,6 +6,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Typography,
 } from "@mui/material";
 
 interface Vote {
@@ -25,8 +26,11 @@ function VotesTable() {
   }, []);
 
   return (
-    <Paper elevation={3}>
-      <Table>
+    <Paper elevation={3} sx={{ padding: 2, marginBottom: 2 }}>
+      <Typography variant="h4" gutterBottom>
+        Recent Votes
+      </Typography>
+      <Table sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
             <TableCell>ID</TableCell>

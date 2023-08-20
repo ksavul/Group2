@@ -31,40 +31,49 @@ function MintTokensForm() {
       display="flex"
       flexDirection="column"
       gap={3}
-      maxWidth="400px"
       margin="20px auto"
+      alignItems="center"
     >
-      <Typography variant="h5">Mint Tokens</Typography>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          fullWidth
-          label="Address"
-          variant="outlined"
-          id="address"
-          name="address"
-          value={formData.address}
-          onChange={handleInputChange}
-          required
-        />
-        <Box marginTop={2}>
+      <Typography variant="h4">Mint Tokens</Typography>
+      <div
+        style={{
+          width: "100%", // Initially, set the width to 100% to take full container width
+          maxWidth: "270px", // Set the maximum width for larger screens
+          margin: "0 auto", // Center-align the container
+        }}
+      >
+        {" "}
+        <form onSubmit={handleSubmit}>
           <TextField
             fullWidth
-            label="Amount"
+            label="Address"
             variant="outlined"
-            type="number"
-            id="amount"
-            name="amount"
-            value={formData.amount}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleInputChange}
             required
           />
-        </Box>
-        <Box marginTop={2}>
-          <Button variant="contained" color="primary" type="submit" fullWidth>
-            Mint Tokens
-          </Button>
-        </Box>
-      </form>
+          <Box marginTop={2}>
+            <TextField
+              fullWidth
+              label="Amount"
+              variant="outlined"
+              type="number"
+              id="amount"
+              name="amount"
+              value={formData.amount}
+              onChange={handleInputChange}
+              required
+            />
+          </Box>
+          <Box marginTop={2}>
+            <Button variant="contained" color="primary" type="submit" fullWidth>
+              Mint Tokens
+            </Button>
+          </Box>
+        </form>
+      </div>
     </Box>
   );
 }
