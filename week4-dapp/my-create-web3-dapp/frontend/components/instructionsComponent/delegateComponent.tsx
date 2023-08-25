@@ -45,7 +45,13 @@ function DelegateComponent() {
         <TextField
           label="Delegate Address"
           value={delegate}
+<<<<<<< HEAD
           onChange={(e) => setDelegatee(e.target.value)}
+=======
+          onChange={(e: { target: { value: React.SetStateAction<string> } }) =>
+            setDelegatee(e.target.value)
+          }
+>>>>>>> 3f54def7c0360d77e72ab25cd92b2ef3084508ae
           variant="outlined"
           sx={{ width: "100%" }}
         />

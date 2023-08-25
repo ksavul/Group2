@@ -4,7 +4,10 @@ import DelegateComponent from "./delegateComponent";
 import MintTokensForm from "./mintTokens";
 import VotesTable from "./VotesTable";
 import SaveVote from "./saveVote";
+<<<<<<< HEAD
 import OracleComponent from "./oracleComponent";
+=======
+>>>>>>> 3f54def7c0360d77e72ab25cd92b2ef3084508ae
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -31,9 +34,12 @@ export default function InstructionsComponent() {
           <Grid item xs={12} md={6}>
             <QueryComponent />
           </Grid>
+<<<<<<< HEAD
           <Grid item xs={12} md={6}>
             <OracleComponent />
           </Grid>
+=======
+>>>>>>> 3f54def7c0360d77e72ab25cd92b2ef3084508ae
           <Grid item xs={12} md={12}>
             <VotesTable />
           </Grid>
