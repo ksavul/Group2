@@ -5,7 +5,7 @@ dotenv.config();
 
 async function main() {
   const PROPOSALS = ["Proposal1", "Proposal2", "Proposal3"];
-  const ERC20ContractAddress = "0x22482542fFE728d2B5E800cEb79E8DE61cC29c70";
+  const ERC20ContractAddress = "0x10A91764A9D6376c545D9be403C47a458a9C9E03";
   const blocksQuantity = 10000;
 
   const provider = new ethers.JsonRpcProvider(
